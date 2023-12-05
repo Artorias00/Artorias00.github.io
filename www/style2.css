@@ -1,0 +1,342 @@
+/* generali */
+
+body {
+  margin: 0;
+  background-color: #e6e6e6;
+  font-family: 'Tomorrow', sans-serif;
+}
+
+main {
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  perspective: 2px;
+}
+
+h1{
+  font-size: 8rem;
+  text-align: center;
+  color: lightslategrey;
+}
+
+a {
+  color: orange;
+  text-decoration: none;
+}
+
+section {
+  transform-style: preserve-3d;
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: lightslategrey;
+}
+
+section h1 {
+  text-align: center;
+  font-size: 4rem;
+  font-family: 'Tomorrow', 'Helvetica', sans-serif;
+}
+
+/* parallax */
+
+.no-parallax {
+  background-color: #e6e6e6;
+  z-index: 999;
+  text-align: center;
+  height: 37%
+}
+
+.parallax h1 {
+  color: white;
+  width: 60%;
+  font-size: 2rem;
+}
+
+.parallax::after {
+  content: " ";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateZ(-1px) scale(1.5);
+  background-size: 100%;
+  z-index: -1;
+}
+
+/* sta parte è ridicola, ma vabbè */
+
+.bg1::after {
+  background:
+    url("foto/io4.jpg");
+    margin: 5%;
+  background-size: cover;
+}
+.bg2::after {
+  background:
+    url("foto/adamo4.jpg");
+    margin: 5%;
+  background-size: cover;
+}
+.bg3::after {
+  background:
+    url("foto/foto_cibo.jpg");
+    margin: 5%;
+  background-size: cover;
+}
+
+section h1 {
+    font-size: 8rem;
+  }
+.parallax h1 {
+    font-size: 4rem;
+  }
+
+/* varie (immagini e zone specifiche) */
+
+.icon-image{
+  width: 50px;
+}
+.final-nav{
+  height: 10%;
+  text-align-last:
+  justify; length: 100%;
+  margin-left: 37.5%;
+  margin-right: 37.5%;
+  margin-top: 1%
+}
+
+/* typewriting effect */
+
+.c1{
+  display: inline-block;
+}
+.c2{
+  display: block;
+}
+.c3{
+  display: block;
+}
+h1 .type {
+  font-size: 8rem;
+  overflow: hidden;
+  border-right: .05em solid transparent;
+  white-space: nowrap;
+  margin: 0 auto;
+  width: 0;
+  animation:
+    .7s blink-caret 0s step-end 3,
+    .8s typing 2s steps(5, end) forwards,
+    .7s blink-caret 2s step-end 3;
+}
+
+
+h1 .type2{
+    font-size: 1.5rem;
+    overflow: hidden;
+    border-right: .15em solid transparent;
+    white-space: nowrap;
+    margin: 0 auto;
+    width: 0;
+    animation:
+      typing 3s steps(58, end) forwards,
+      blink-caret .70s step-end infinite;
+    animation-delay: 4.5s;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100%}
+}
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% {border-color: orange}
+}
+
+/* scroller bar */
+
+.scroller {
+  height: auto;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+.scroller section {
+  scroll-snap-align: start;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #6d6d6d;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.mobile {
+  display: none;
+}
+.desktop {
+  display: block;
+}
+
+/* progetti */
+
+.container{
+  width: 100%;
+  align-items: center;
+  display: flex;
+  margin: 10% 0 10% 0;
+}
+.immagine_sx{
+margin: 0% 10% 0% 10%;
+width: 100%;
+float: left;
+display: inline-block;
+vertical-align: top;
+opacity: 1;
+transition: .5s ease;
+backface-visibility: hidden;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.38);
+}
+.immagine_dx{
+margin: 0% 10% 0% 10%;
+width: 100%;
+float: right;
+display: inline-block;
+vertical-align: top;
+opacity: 1;
+transition: .5s ease;
+backface-visibility: hidden;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.38);
+}
+.testo_dx{
+margin: 0% 5% 0% 10%;
+  width: 40%;
+  float: right;
+  text-align: center;
+}
+.testo_sx{
+margin: 0% 10% 0% 5%;
+  width: 40%;
+  float: left;
+  text-align: center;
+}
+.immagine_sx:hover{
+  opacity: 0.6;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0), 0 6px 20px 0 rgba(0, 0, 0, 0);
+}
+.immagine_dx:hover {
+  opacity: 0.6;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0), 0 6px 20px 0 rgba(0, 0, 0, 0);
+}
+
+.container a{
+  width: 40%;
+}
+
+/* per mobile */
+
+@media (max-width: 500px){
+  .type2 {
+    text-align: center;
+    width: auto;
+    }
+  .bg1::after {
+      background:
+        url("foto/io5.jpg");
+      background-size: cover;
+    }
+    .bg2::after {
+      background:
+        url("foto/adamo5.jpg");
+      background-size: cover;
+    }
+    .bg3::after {
+      background:
+        url("foto/foto_cibo2.jpg");
+      background-size: cover;
+    }
+    .no-parallax {
+      height: 60%
+    }
+    .mobile {
+    display: block;
+  }
+  .desktop {
+    display: none;
+  }
+  h1 .type2{
+      font-size: 1.5rem;
+      overflow: hidden;
+      border-right: .15em solid transparent;
+      white-space: nowrap;
+      margin: 0 auto;
+      width: 0;
+      animation:
+      1s typing 2s steps(30, end) forwards,
+      .7s blink-caret 2s step-end infinite;
+
+      animation-delay: 6.8s;
+  }
+  h1 .type3{
+      font-size: 2rem;
+      overflow: hidden;
+      border-right: .15em solid transparent;
+      white-space: nowrap;
+      margin: 0 auto;
+      width: 0;
+      animation:
+      1s typing 2s steps(16, end) forwards,
+      .7s blink-caret 2s step-end 3;
+      animation-delay: 4.5s;
+  }
+  .final-nav{
+    width: 100%;
+    display: block;
+    margin: 0px;
+  }
+  .icon-image{
+    width: 60px;
+
+  }
+  ::-webkit-scrollbar {
+    width: 0%;
+  }
+  .container{
+    display: block;
+    width: 100%;
+    position: relative;
+    margin:0%;
+  }
+  .immagine_dx{
+    width: 80%;
+    opacity: 1;
+    transition: .5s ease;
+    backface-visibility: hidden;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0), 0 6px 20px 0 rgba(0, 0, 0, 0);
+    float: none;
+  }
+  .testo_dx{
+    margin: 10%;
+    width: 100%;
+    float: none;
+  }
+  .testo_sx{
+    margin: 10%;
+    width: 100%;
+    float: none;
+  }
+  .container a{
+    width: 80%;
+    margin: 10%;
+  }
+
+
+}
