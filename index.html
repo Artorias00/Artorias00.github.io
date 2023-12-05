@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <base href="nic_blog">
+  <link rel="stylesheet" type="text/css" href="style2.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tomorrow">
+  <link rel="icon" type="image/x-icon" href="foto/logo.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+
+  <title>Nicolò Francescon</title>
+  <meta name="description" content="my personal Webpage">
+  <meta name="author" content="Nicolò Francescon">
+</head>
+<body>
+
+  <script type="text/javascript" charset="utf-8">
+    let a;
+    let time;
+    setInterval(() => {
+      a = new Date();
+      tempo = ((a.getFullYear() - 2000) + ((a.getMonth() - 7) / 12) +
+        ((a.getDay() - 17) / 365) + (a.getHours() / (365 * 24)) + (a.getMinutes() / (365 * 24 * 60)) +
+        (a.getSeconds() / (365 * 24 * 3600)) + a.getMilliseconds() / (365 * 24 * 60 * 60 * 1000)).toFixed(8);
+      document.getElementById('time').innerHTML = tempo;
+    }, 100);
+  </script>
+
+  <main>
+  <section class="no-parallax" style=" height: 100%">
+    <h1 style="margin-top: 40%;"><div class="c1"><div class="type">Ciao!</div></div>
+      <br>
+    <div class="desktop"><div class="c2"><div class="type2" style="margin-top: 200px">
+      Sono Nicolò. Qui puoi trovare i miei <a href="progetti.html">progetti</a>
+      e il mio <a href="cv scientifico.pdf" target="_blank">CV</a></div></div></div></h1>
+      <h1><div class="mobile"><div class="c3"><div class="type3">mi chiamo Nicolò</h1>
+        <h1 style="margin-bottom: 200px;"  class="mobile" ><div class="c2"><div class="type2">e questo è il mio portfolio
+    </div></div></div></div></div></h1>
+
+  </section>
+  <section class="parallax bg1">
+    <h1 style="color: #e6e6e6">About me</h1>
+  </section>
+  <section class="no-parallax">
+    <div>
+      <h3>Sono uno studente di Ingegneria Biomedica al Politecnico di Milano e
+        ho <span id="time" style="color: orange"></span> anni.</h3>
+    </div>
+    <br>
+    <div>
+          <h3>sono un appassionato di informatica, elettronica digitale e cucina</h3>
+          <h3 class="mobile"> questi sono i miei <a href="progetti.html">progetti</a> e <br> questo è il mio  <a href="cv scientifico.pdf" target="_blank">CV</a> </h3>
+    </div>
+  </section>
+  <section class="parallax bg2">
+    <h1 style="color: #e6e6e6">Modellazione e Stampa 3D</h1>
+  </section>
+  <section class="no-parallax">
+    <h3>al Politecnico ho imparato l'arte della modellazione 3D</h3>
+    <br>
+    <h3>e grazie alla mia <a href="https://anycubic.it/collections/3d-printers/products/anycubic-vyper" target="_blank">Vyper</a>
+       ora riesco a trasformare i miei disegni in realtà</h3>
+  </section>
+  <section class="parallax bg3">
+    <h1 style="color: #e6e6e6">cucina</h1>
+  </section>
+  <section class="no-parallax" style="height: 40%">
+    <h3>da sempre ho avuto la passione per la cucina</h3>
+    <br>
+    <h3>penso che cucinare sia una forma d'arte e d'amore, <a href="pagine/cibo.html">qui</a> potrai trovare alcune mie creazioni</h3>
+  </section>
+
+    <div class="final-nav">
+   <a href="//www.linkedin.com/in/nicol%C3%B2-francescon-490523233/" target="_blank">
+     <img class="icon-image" src="foto/logo_linkedin.png" alt="image not found">
+   </a>
+   <a href="//www.instagram.com/il__franci/" target="_blank">
+     <img class="icon-image" src="foto/logo_instagram.png" alt="image not found">
+   </a>
+   <a href="//github.com/Artorias00/Artorias00" target="_blank">
+     <img class="icon-image" src="foto/logo_github.png" alt="image not found">
+   </a>
+   <a href="//lichess.org/@/Grandeluposif" target="_blank">
+     <img class="icon-image" src="foto/logo_lichess.png" alt="image not found">
+   </a>
+</div>
+</main>
+</body>
+</html>
