@@ -8,12 +8,9 @@ body {
 
 main {
   height: 100vh;
-  display: flex;         /* Use flexbox to align children */
-  justify-content: center; /* Center horizontally */
-  align-items: center;   /* Center vertically */
-  overflow-x: hidden;    /* Keep existing overflow settings */
-  overflow-y: auto;      /* Keep existing overflow settings */
-  perspective: 2px;      /* Keep existing 3D perspective settings */
+  overflow-x: hidden;
+  overflow-y: auto;
+  perspective: 2px;
 }
 
 h1{
@@ -342,81 +339,4 @@ margin: 0% 10% 0% 5%;
   }
 
 
-}
-
-/* Style for the images */
-.responsive-image {
-  width: 100%;
-  height: 100%; /* Adjust height to 100% to fill the grid item */
-  object-fit: cover; /* Keeps aspect ratio, but crops the image if necessary */
-  transition: filter 0.3s ease; /* Smooth transition for desaturation effect */
-}
-
-.responsive-grid {
-  display: grid;
-  grid-gap: 10px;
-  justify-items: stretch;  /* Adjust this to 'stretch' to make sure items fill the columns */
-  align-items: start;      /* Adjusted from 'stretch' to 'start' to align items to the top */
-  grid-template-columns: 1fr; /* Default mobile setup */
-  width: auto;            /* Adjust width to be automatic to allow padding to function */
-  max-width: 80%;         /* Set max-width to 80% to ensure 10% margin on each side */
-  margin: 0 auto;         /* Automatically adjust margins to center the grid */
-  padding: 0 10%;         /* Padding of 10% on both sides to maintain distance */
-}
-
-@media (min-width: 600px) {
-  .responsive-grid {
-    grid-template-columns: repeat(auto-fill, minmax(33.33%, 1fr));
-  }
-}
-
-@media (min-width: 900px) {
-  .responsive-grid {
-    grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
-  }
-}
-
-.grid-item {
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.grid-item a {
-  text-decoration: none; /* Removes underline from links */
-  color: inherit; /* Ensures text color is consistent with your design */
-  display: block; /* Makes the entire area clickable */
-}
-
-.responsive-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: filter 0.3s ease; /* Smooth transition for the desaturation effect */
-}
-
-.image-caption {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  color: white;
-  background-color: rgba(0,0,0,0.5); /* Semi-transparent black background to ensure readability */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  text-align: center;
-  padding: 0; /* Ensure there's no padding that could disrupt the full coverage */
-  margin: 0; /* Ensure no margins are affecting the positioning */
-}
-
-.grid-item:hover .responsive-image {
-  filter: grayscale(100%); /* Desaturate the image on hover */
-}
-
-.grid-item:hover .image-caption {
-  opacity: 1; /* Make the caption visible on hover */
 }
