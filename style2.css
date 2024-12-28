@@ -241,6 +241,7 @@ margin: 0% 10% 0% 5%;
   width: 40%;
 }
 
+
 /* per mobile */
 
 @media (max-width: 500px){
@@ -339,4 +340,38 @@ margin: 0% 10% 0% 5%;
   }
 
 
+}
+/* Nuovi stili per le immagini extra */
+.immagine_extra {
+  width: calc(18% - 10px); /* Adjust the width to fit within the container */
+  display: none;
+  opacity: 0;
+  position: absolute;
+  transform: translateX(-150px); /* Start position off-screen */
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.container {
+  position: relative;
+}
+
+.container .immagine_sx,
+.container .immagine_dx {
+  position: relative;
+}
+
+.immagine_sx.show-extra,
+.immagine_dx.show-extra {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.testo_dx,
+.testo_sx {
+  transition: opacity 0.5s ease;
+}
+
+.testo_dx.hidden,
+.testo_sx.hidden {
+  opacity: 0;
 }

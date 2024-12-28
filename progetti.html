@@ -38,7 +38,11 @@
   <h1>progetti</h1>
 
   <div class="container">
-    <a href="#"><img  class="immagine_sx" src="foto/raspberrypi.jpg"></a>
+    <a href="hello_world.html"><img  class="immagine_sx" src="foto/raspberrypi.jpg"></a>
+    <img class="immagine_extra" src="foto/saldatura.jpg" style="top: 0%; left: 50%;">
+    <img class="immagine_extra" src="foto/beafaccia.jpg" style="top: 0%; left: 75%;">
+    <img class="immagine_extra" src="foto/scatolacasino.jpg" style="top: 60%; left: 50%;">
+    <img class="immagine_extra" src="foto/oggettivari.jpg" style="top: 60%; left: 75%;">
     <div class="testo_dx">
       <h2>Hello World!</h2>
       <p> "The journey of a thousand miles begins with one step" </p>
@@ -51,26 +55,42 @@
       <p> Seconda iterazione di una mano bionica controllata con dei sensori EMG e un modello di Machine Learning, progettata per chi non ha più una mano, ma manca ancora qualcosa... </p>
     </div>
     <a href="#"> <img class="immagine_dx" src="foto/sapiensv2.jpg"></a>
+    <img class="immagine_extra" src="foto/adamostage.jpg" style="top: 0%; left: 0%;">
+    <img class="immagine_extra" src="foto/manoopenday.png" style="top: 0%; left: 25%;">
+    <img class="immagine_extra" src="foto/manostritola.png" style="top: 60%; left: 0%;">
+    <img class="immagine_extra" src="foto/quadrorealista.jpg" style="top: 60%; left: 25%;">
   </div>
 
   <div class="container">
-    <a href="#"><img  class="immagine_sx" src="foto/innaffiatore.jpg"></a>
+    <a href="#"><img  class="immagine_sx" src="foto/stazione_meteo.jpg "></a>
+    <img class="immagine_extra" src="foto/loraaperto.jpg" style="top: 0%; left: 50%;">
+    <img class="immagine_extra" src="foto/loralora.png" style="top: 0%; left: 75%;">
+    <img class="immagine_extra" src="foto/ricevitorelora.jpg" style="top: 60%; left: 50%;">
+    <img class="immagine_extra" src="foto/telegram.png" style="top: 60%; left: 75%;">
     <div class="testo_dx">
-      <h2>Annaffiatore automatico</h2>
-      <p> Un sistema che permette di monitorare in tempo reale l'umidità del terreno e annaffiare la pianta quando quest'ultimo risulta troppo secco </p>
+      <h2>Stazione Meteo LORA</h2>
+      <p>Capace di monitorare il meteo anche in zone senza copertura internet grazie alla comunicazione LORA   </p>
     </div>
   </div>
 
   <div class="container">
     <div class="testo_sx">
-      <h2>Stazione Meteo LORA</h2>
-      <p> Capace di monitorare il meteo anche in zone senza copertura internet grazie alla comunicazione LORA  </p>
+      <h2>Annaffiatore automatico</h2>
+      <p> Un sistema che permette di monitorare in tempo reale l'umidità del terreno e annaffiare la pianta quando quest'ultimo risulta troppo secco </p>
     </div>
-    <a href="#"> <img class="immagine_dx" src="foto/stazione_meteo.jpg"></a>
+    <a href="#"> <img class="immagine_dx" src="foto/innaffiatore.jpg"></a>
+    <img class="immagine_extra" src="foto/sapiensv2.jpg" style="top: 0%; left: 0%;">
+    <img class="immagine_extra" src="foto/sapiensv2.jpg" style="top: 0%; left: 25%;">
+    <img class="immagine_extra" src="foto/stazione_meteo.jpg" style="top: 60%; left: 0%;">
+    <img class="immagine_extra" src="foto/innaffiatore.jpg" style="top: 60%; left: 25%;">
   </div>
 
   <div class="container">
     <a href="#"><img  class="immagine_sx" src="foto/iss.jpg"></a>
+    <img class="immagine_extra" src="foto/sapiensv2.jpg" style="top: 0%; left: 50%;">
+    <img class="immagine_extra" src="foto/sapiensv2.jpg" style="top: 0%; left: 75%;">
+    <img class="immagine_extra" src="foto/stazione_meteo.jpg" style="top: 60%; left: 50%;">
+    <img class="immagine_extra" src="foto/innaffiatore.jpg" style="top: 60%; left: 75%;">
     <div class="testo_dx">
       <h2> ISS tracking </h2>
       <p> un dipsositivo che traccia in tempo reale la posizione della Stazione Spaziale Internazionale </p>
@@ -158,6 +178,59 @@
   </div>
 </div>
 
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+    const containers = document.querySelectorAll('.container');
+  
+    containers.forEach(container => {
+      const mainImage = container.querySelector('.immagine_sx, .immagine_dx');
+      const extraImages = container.querySelectorAll('.immagine_extra');
+      const textElements = container.querySelectorAll('.testo_dx, .testo_sx');
+  
+      mainImage.addEventListener('mouseenter', () => {
+        textElements.forEach(text => {
+          text.classList.add('hidden');
+        });
+  
+        extraImages.forEach((image, index) => {
+          setTimeout(() => {
+            image.style.display = 'inline-block';
+            setTimeout(() => {  // Ensure a reflow to apply transition
+              image.style.opacity = '1';
+              image.style.transform = 'translateX(0)';
+            }, 50);
+          }, index * 150);  // delay for sequence
+        });
+      });
+  
+      mainImage.addEventListener('mouseleave', () => {
+        textElements.forEach(text => {
+          text.classList.remove('hidden');
+        });
+  
+        extraImages.forEach((image, index) => {
+          setTimeout(() => {
+            image.style.opacity = '0';
+            image.style.transform = 'translateX(-150px)';
+            setTimeout(() => {
+              image.style.display = 'none';
+            }, 500);  // match with transition duration
+          }, index * 150);  // delay for sequence
+        });
+      });
+    });
+  });
+  </script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
 </body>
+  
 </html>
