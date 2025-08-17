@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Before/After – Modern Compare</title>
+<style>
+  /* =====================
+     Design tokens
+  ====================== */
+  :root{
+    --container-max-w: 1100px;
+    --container-radius: 22px;
+    --knob-size: 64px;              /* handle diameter */
+    --line-width: 2px;              /* separator thickness */
+    --accent: #7c5cff;              /* accent gradient A */
+    --accent-2: #2ee6a6;            /* accent gradient B */
+    --bg: #0b0c10;
+    --glass: rgba(255,255,255,.08);
+    --glow: 0 10px 30px rgba(0,0,0,.35);
+    --knob-glow: 0 8px 28px rgba(0,0,0,.35), 0 0 0 1px rgba(255,255,255,.2) inset;
+    --ring: 0 0 0 3px rgba(124,92,255,.35), 0 0 0 6px rgba(46,230,166,.25);
+    --ease: cubic-bezier(.22,.61,.36,1);
+  }
+  @media (max-width: 640px){
+    :root{ --knob-size: 56px; }
+  }
+
+  /* Page chrome */
+  *{ box-sizing: border-box }
+  html,body{ height:100%; }
+  body{
+    margin:0; font: 15px/1.4 Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    color:#e8e8e8; background: radial-gradient(1200px 600px at 10% -10%, rgba(124,92,255,.25), transparent 60%),
+                    radial-gradient(900px 600px at 110% 10%, rgba(46,230,166,.18), transparent 60%),
+                    var(--bg);
+    display:grid; place-items:center; padding: clamp(16px, 4vw, 48px);
+  }
+  .wrap{ width: min(100%, var(--container-max-w)); }
+  h1{ font-size: clamp(24px, 3.5vw, 40px); margin:0 0 14px; letter-spacing:.2px }
+  .sub{ opacity:.8; margin:0 0 20px; max-width: 70ch }
+
+  /* ============ Compare container ============ */
+  .compare{
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9; /* cinematic ratio; change if you want */
+    border-radius: var(--container-radius);
+    overflow: hidden;
+    background: #101217;
+    box-shadow: var(--glow);
+    user-select: none;
+    touch-action: none;
+    isolation:isolate;
+  }
+
+  /* Subtle grain overlay for premium feel */
+  .grain{ position:absolute; inset:0; pointer-events:none; z-index: 6;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160"><filter id="n"><feTurbulence baseFrequency="0.65" numOctaves="2" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23n)" opacity=".05"/></svg>');
+    mix-blend-mode: soft-light; opacity:.35 }
+
+  .compare img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transform: translateZ(0) }
+  .img1{ z-index:1; filter: contrast(1.03) saturate(1.02) }
+  .img2{ z-index:2; clip-path: inset(0 50% 0 0); }
+
+  /* Gradient border aura (luxury vibe) */
+  .compare::before{ content:""; position:absolute; inset:-1px; border-radius: inherit; z-index:0; padding:1px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude; opacity:.35 }
+
+  /* Divider line with gradient + glow */
+  .divider{ position:absolute; top:0; bottom:0; width: var(--line-width); z-index:3; pointer-events:none;
+    background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,.95), rgba(255,255,255,0));
+    box-shadow: 0 0 0 1px rgba(255,255,255,.08);
+  }
+
+  /* Handle (glass, neumorphism-ish) */
+  .handle{ position:absolute; top:50%; translate:-50% -50%; left:50%; z-index:4; width: var(--knob-size); height: var(--knob-size);
+    border-radius: 50%; background: linear-gradient(145deg, rgba(255,255,255,.9), rgba(255,255,255,.75));
+    box-shadow: var(--knob-glow);
+    display:grid; place-items:center; cursor: ew-resize; outline: none; border: none; padding:0;
+    transition: transform .2s var(--ease), box-shadow .2s var(--ease); }
+  .handle:focus-visible{ box-shadow: var(--knob-glow), var(--ring); }
+  .compare:hover .handle{ transform: translate(-50%, -50%) scale(1.04) }
+
+  /* Arrows inside the handle */
+  .chevrons{ position: relative; width: 58%; height: 40%; display:flex; align-items:center; justify-content:space-between }
+  .chevrons span{ display:block; width: 10px; height: 10px; border-top: 2px solid #111; border-right: 2px solid #111; opacity:.75 }
+  .chevrons .left{ rotate: -135deg; animation: nudgeL 1.6s var(--ease) infinite; }
+  .chevrons .right{ rotate: 45deg; animation: nudgeR 1.6s var(--ease) infinite; }
+  @keyframes nudgeL{ 0%,60%,100%{ transform: translateX(0) } 30%{ transform: translateX(-3px) } }
+  @keyframes nudgeR{ 0%,60%,100%{ transform: translateX(0) } 30%{ transform: translateX(3px) } }
+  @media (prefers-reduced-motion: reduce){
+    .chevrons .left,.chevrons .right{ animation:none }
+  }
+
+  /* Labels (glass chips) */
+  .badge{ position:absolute; top:14px; z-index:5; padding:.5rem .75rem; border-radius: 999px; font-weight:600; letter-spacing:.2px;
+    background: linear-gradient(180deg, rgba(255,255,255,.15), rgba(255,255,255,.05));
+    color:#fff; backdrop-filter: blur(6px); -webkit-backdrop-fil

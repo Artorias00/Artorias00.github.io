@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base href="nic_blog">
+  <link rel="stylesheet" type="text/css" href="style2.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tomorrow">
+  <link rel="icon" type="image/x-icon" href="foto/logo.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+
+  <title>Progetti</title>
+  <meta name="description" content="my personal Webpage">
+  <meta name="author" content="Nicolò Francescon">
+</head>
+<body>
+  <style media="screen">
+    p{
+      font-size: 1.7rem;
+      text-align: justify;
+    }
+    h2{
+      font-size: 4rem;
+    }
+    li{
+      font-size: 1.7rem;
+      text-align: justify;
+    }
+    article{
+      margin: 10%;
+    }
+    h1,h2{
+      text-align: center;
+    }
+  </style>
+
+  <div class="desktop" style="padding-left:5%">
+    <h1>Bioreattore Ibrido</h1>
+  </div>
+
+  <article style="text-align: center">
+    <h2 style="color: black">Dal foglio bianco al primo esperimento</h2>
+
+    <p style="text-align: center">
+      È nato per risolvere un mio problema reale in laboratorio: colture più stabili e riproducibili senza
+      spendere un patrimonio.<br><br>
+      L’ho progettato da zero: meccanica, elettronica e software, integrando tutto in un unico sistema
+      pensato per stare in incubatore e lavorare per giorni in autonomia.<br><br>
+      Movimento ibrido: rotazione continua + basculamento controllato per imitare micro-ambiente fisiologico e
+      migliorare scambio di massa nelle colture 3D/organoidi.<br><br>
+      Architettura modulare in SolidWorks con telai in materiale compatibile con incubazione, cinematica rigida,
+      giunti e supporti sostituibili per diversi formati (vials, flask, chamber custom).<br><br>
+      Cuore elettronico su ESP32: controllo in tempo reale, logging e comunicazione; driver stepper per due
+      assi indipendenti, finecorsa e sensori di stato per sicurezza e ripetibilità.<br><br>
+      Sensori integrati: temperatura ambiente/incubatore, CO₂ (interfacciabile), lettura RPM e angolo;
+      il sistema reagisce agli scostamenti mantenendo parametri di processo costanti.<br><br>
+      Interfaccia utente essenziale con encoder e display: preset di protocollo, avvio rapido, pausa,
+      resume e diagnostica; pensato per guanti e spazi stretti.<br><br>
+      Software a macchina a stati: avvio, calibrazione, run, fault e shutdown; facile da estendere con nuovi
+      profili di movimento o strategie di controllo closed-loop.<br><br>
+      Validazione iniziale con sensori esterni: temperatura e CO₂ tracciate per ore, drift contenuto, vibrazioni
+      ridotte grazie a bilanciamento e profili di accelerazione dolci.<br><br>
+      Prototipazione iterativa: stampa 3D per housing e staffe, test rapidi, poi parti critiche irrigidite
+      con inserti e cuscinetti adeguati per eliminare giochi e risonanze.<br><br>
+      Sicurezza prima: watchdog, limiti software sugli assi, protezioni termiche e routine di ritorno in posizione
+      sicura in caso di allarme o blackout.<br><br>
+      Dati utili, non solo numeri: logging su SD e seriale per analisi post-run (Python/MATLAB) e comparazione tra
+      protocolli; ogni prova diventa riutilizzabile.<br><br>
+      Cosa ho imparato: dividere tutto in fasi chiare (design → prototipo → validazione → raffinamento),
+      misurare ogni ipotesi e documentare le decisioni tecniche.<br><br>
+      Cosa viene dopo: calibrazione CO₂ con BSEC/K-sensor, profili di shear controllato, firmware con PID adattivo,
+      e dashboard remota per monitoraggio live.<br><br>
+      È stato il progetto più lungo, impegnativo e costoso che abbia realizzato, ma anche quello che mi ha insegnato
+      di più su come portare avanti sistemi complessi end-to-end.<br><br>
+      Oggi è il mio strumento di lavoro: dalla ricerca alla prototipazione, pronto a far crescere idee
+      — non solo cellule.
+    </p>
+
+    <br><br><br>
+    <!-- <p style="text-align: center"><a href="../tesi.pdf" download="Emotion and Virtual Reality" target="_blank">here</a> you can download the full thesis</p> -->
+  </article>
+
+  <div class="mobile">
+    <div class="testo_dx">
+      <h1 style="font-size: 6rem">progetti</h1>
+    </div>
+
+    <div class="container">
+      <a href="#"><img class="immagine_dx" src="foto/bioreattore.jpg" alt="Bioreattore Ibrido"></a>
+      <div class="testo_dx">
+        <h2>Hello World!</h2>
+        <p>"The journey of a thousand miles begins with one step"</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

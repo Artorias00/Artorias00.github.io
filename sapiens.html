@@ -17,10 +17,10 @@
     p{
       font-size: 1.7rem;
       text-align: justify;
-      }
+    }
     h2{
       font-size: 4rem;
-      }
+    }
     li{
       font-size: 1.7rem;
       text-align: justify;
@@ -28,145 +28,48 @@
     article{
       margin: 10%;
     }
-    h2{
+    h1,h2{
       text-align: center;
     }
-
   </style>
 
-<div class="desktop" style="padding-left:5%">
-  <h1>progetti</h1>
+  <div class="desktop" style="padding-left:5%">
+    <h1>Hand Project – EMG/ECG + ML</h1>
+  </div>
 
-  <div class="container">
-    <a href="#"><img  class="immagine_sx" src="foto/raspberrypi.jpg"></a>
+  <article style="text-align: center">
+    <h2 style="color: black">Segnali bioelettrici che diventano movimento</h2>
+
+    <p style="text-align: center">
+      Sono stato Team Leader della sezione EMG/EEG in un progetto che punta a tradurre i segnali del corpo in gesti naturali di una mano bionica.<br><br>
+      Abbiamo sviluppato una piattaforma completa: acquisizione multi-canale EMG ed ECG, filtraggio e sincronizzazione dei segnali, estrazione feature e classificazione in tempo reale con modelli di Machine Learning ottimizzati per microcontrollore.<br><br>
+      Il sistema riconosce decine di gesti diversi (presa a pinza, presa cilindrica, hook, punta-dito, apri/chiudi, gesture personalizzate) e li esegue con transizioni morbide grazie a profili di coppia e velocità controllati.<br><br>
+      Hardware modulare: elettrodi di superficie a bassa impedenza, front-end analogico con filtraggio anti-rumore e protezioni, conversione ADC ad alta risoluzione, microcontrollore per l’inferenza, bus dedicato per comandi ai servomotori/attuatori della mano.<br><br>
+      Pipeline segnale→azione: rimozione artefatti, finestratura, feature nel dominio tempo/frequenza (RMS, MAV, ZC, SSC, AR, PSD), normalizzazione online, classificatore leggero (SVM/Random Forest/NN) quantizzato per latenza millisecondi e basso consumo.<br><br>
+      Integrazione ECG: monitoraggio del carico fisiologico e gating di sicurezza; se rileviamo stress eccessivo o rumore miografico, il controller adatta sensibilità e guadagni per mantenere stabilità e sicurezza dell’utente.<br><br>
+      Addestramento e validazione: sessioni su più soggetti con protocolli ripetibili, data labeling assistito, cross-validation, confusion matrix e metriche di accuratezza/lag per scegliere i modelli più robusti in condizioni reali.<br><br>
+      Firmware a macchina a stati: calibrazione, training rapido, inference, fallback di sicurezza; logging su SD/seriale per analisi offline e auto-tuning dei parametri.<br><br>
+      Interfaccia utente: wizard di calibrazione in pochi minuti, profili di gesto salvabili, mappatura personalizzata gesto→movimento per esigenze specifiche o riabilitazione.<br><br>
+      Risultato: una mano capace di interpretare i segnali bioelettrici e trasformarli in azioni affidabili, pronta ad apprendere nuovi gesti e adattarsi all’utente nel tempo.
+    </p>
+
+    <br><br><br>
+    <!-- <p style="text-align: center"><a href="../paper.pdf" download="Bionic Hand Project" target="_blank">Scarica il paper</a></p> -->
+  </article>
+
+  <div class="mobile">
     <div class="testo_dx">
-      <h2>Hello World!</h2>
-      <p> "The journey of a thousand miles begins with one step" </p>
+      <h1 style="font-size: 6rem">progetti</h1>
+    </div>
+
+    <div class="container">
+      <a href="#"><img class="immagine_dx" src="foto/hand_emg.jpg" alt="Bionic Hand EMG/ECG + ML"></a>
+      <div class="testo_dx">
+        <h2>Hello World!</h2>
+        <p>"Signals in, motion out."</p>
+      </div>
     </div>
   </div>
-
-  <div class="container">
-    <div class="testo_sx">
-      <h2>Sapiens V2</h2>
-      <p> Seconda iterazione di una mano bionica controllata con dei sensori EMG e un modello di Machine Learning, progettata per chi non ha più una mano, ma manca ancora qualcosa... </p>
-    </div>
-    <a href="#"> <img class="immagine_dx" src="foto/sapiensv2.jpg"></a>
-  </div>
-
-  <div class="container">
-    <a href="#"><img  class="immagine_sx" src="foto/stazione_meteo.jpg "></a>
-    <div class="testo_dx">
-      <h2>Stazione Meteo LORA</h2>
-      <p>Capace di monitorare il meteo anche in zone senza copertura internet grazie alla comunicazione LORA   </p>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="testo_sx">
-      <h2>Annaffiatore automatico</h2>
-      <p> Un sistema che permette di monitorare in tempo reale l'umidità del terreno e annaffiare la pianta quando quest'ultimo risulta troppo secco </p>
-    </div>
-    <a href="#"> <img class="immagine_dx" src="foto/innaffiatore.jpg"></a>
-  </div>
-
-  <div class="container">
-    <a href="#"><img  class="immagine_sx" src="foto/iss.jpg"></a>
-    <div class="testo_dx">
-      <h2> ISS tracking </h2>
-      <p> un dipsositivo che traccia in tempo reale la posizione della Stazione Spaziale Internazionale </p>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="testo_sx">
-      <h2>Un Girasole</h2>
-      <p> Come un vero girasole segue sempre il sole, grazie a dei LDR e un servo motore </p>
-    </div>
-    <a href="#"> <img class="immagine_dx" src="foto/fiorellino.jpg"></a>
-  </div>
-
-  <div class="container">
-    <a href="#"><img  class="immagine_sx" src="foto/casco.jpg"></a>
-    <div class="testo_dx">
-      <h2>Stampa 3d</h2>
-      <p> la mia esperienza col mondo della stampa 3d (work in progress) </p>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="testo_sx">
-      <h2>Tesi</h2>
-      <p> un approfondimento su quello che è stata la mia tesi universitaria</p>
-    </div>
-    <a href="pagine/tesi.html"> <img class="immagine_dx" src="foto/foto_giacomo_tesi.jpg"></a>
-  </div>
-</div>
-
-
-<div class="mobile">
-
-  <div class="testo_dx">
-    <h1 style="font-size: 6rem">progetti</h1>
-  </div>
-
-  <div class="container">
-    <a href="#"><img  class="immagine_dx" src="foto/raspberrypi.jpg"></a>
-    <div class="testo_dx">
-      <h2>Hello World!</h2>
-      <p> "The journey of a thousand miles begins with one step"</p>
-    </div>
-  </div>
-
-  <div class="container">
-    <a href="#"> <img class="immagine_dx" src="foto/sapiensv2.jpg"></a>
-    <div class="testo_dx">
-      <h2>Sapiens V2</h2>
-      <p> Seconda iterazione di una mano bionica controllata con dei sensori EMG e un modello di Machine Learning, progettata per chi non ha più una mano, ma manca ancora qualcosa...  </p>
-    </div>
-  </div>
-
-  <div class="container">
-    <a href="#"><img  class="immagine_dx" src="foto/stazione_meteo.jpg"></a>
-    <div class="testo_dx">
-      <h2>Stazione Meteo LORA</h2>
-      <p> Capace di monitorare il meteo anche in zone senza copertura internet grazie alla comunicazione LORA </p>
-    </div>
-  </div>
-
-  <div class="container">
-    <a href="#"> <img class="immagine_dx" src="foto/innaffiatore.jpg"></a>
-    <div class="testo_dx">
-      <h2>Annaffiatore automatico</h2>
-      <p> Un sistema che permette di monitorare in tempo reale l'umidità del terreno e annaffiare la pianta quando quest'ultimo risulta troppo secco </p>
-    </div>
-  </div>
-
-  <div class="container">
-    <a href="#"><img  class="immagine_dx" src="foto/fiorellino.jpg"></a>
-    <div class="testo_dx">
-      <h2>Un Girasole</h2>
-      <p> Come un vero girasole segue sempre il sole, grazie a dei LDR e un servo motore</p>
-    </div>
-  </div>
-
-  <div class="container">
-    <a href="pagine/tesi.html"> <img class="immagine_dx" src="foto/foto_giacomo_tesi.jpg"></a>
-    <div class="testo_dx">
-      <h2>Tesi</h2>
-      <p> un approfondimento su quello che è stata la mia tesi universitaria</p>
-    </div>
-  </div>
-</div>
-  
-  
-  
-  
-  
-  
-  
-  
-  
 
 </body>
-  
 </html>
